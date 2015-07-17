@@ -1,0 +1,46 @@
+\chapter{Introduction}
+
+Loa is a project that was started to address a set of specific reqiurements by combining two distinct technologies, microcontrollers and field pro\-gramm\-able gate arrays (FPGAs).
+
+The intended application is a central controller for a Eurobot-competition type robot. This application requires a high number of interfaces, that are often timing critical and 
+are usually impossible to implement in a centralized archtecture by using only a single microcotnroller. Reconfigurability of the FPGA is also welcome additon as this allows 
+for incereased flexibilty in the rather short development cycles dictated by the competition context.
+
+High-Level design objectives are:
+
+\begin{itemize}
+\item Simplicity 
+\item Accept a narrow design scope for short and medium term benefits
+\item Pragmatic usability - Allow for rapid prototyping
+\item Open Source where reasonably possible
+\end{itemize}
+
+
+
+\section{System Design Decisions}
+
+FPGA:
+\begin{itemize}
+\item Simple FPGA design are easier to verify, therefore Loa uses only one clock domain, no reset, is strictly synchronous.
+\item Use of \href{http://www.gaisler.com/doc/vhdl2proc.pdf}{2-process statemachines} to ease reading and understanding of the code.
+\item Embrace limitation of hardware, no need to over-engineer the system. 
+\end{itemize}
+
+Hardware:
+\begin{itemize}
+\item Cortex-M4 was choosen over larger system for its deterministic timing behavior at still high computational performance.
+\item FPGA choice was limited to packages that can be hand soldered and inspected visually.
+\item 100 mil and 2.0 mm headers have been choosen over high-density board-to-board connector to ease assembly, integration and prototyping.
+\item Low power consumption and high-speed I/Os are considered secondary, as these are not required in the robots.
+\end{itemize}
+
+
+Software:
+\begin{itemize}
+\item To interface well with existing \href{http://www.roboterclub.rwth-aachen.de}{RCA} software the XPCC framework is used.
+\item ANY MORE?
+\end{itemize}
+
+
+
+

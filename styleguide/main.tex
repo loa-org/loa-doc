@@ -1,0 +1,64 @@
+\documentclass[a4paper]{report}
+%\usepackage[ngerman]{babel}
+\usepackage{fontspec}
+\usepackage{minted} % code listings (VHDL)
+\usepackage{xltxtra} % Now in XeLaTeX mode!
+\usepackage{xunicode}
+\usepackage[xetex]{hyperref}
+%\setmainfont[Mapping=tex-text]{Patrick Hand SC}
+%\setmainfont[Mapping=tex-text]{Open Sans Condensed Light}
+\setmainfont[Mapping=tex-text]{Open Sans}
+\newfontfamily{\afont}{Raleway Bold}
+\newfontfamily{\bfont}{Open Sans Condensed Light}
+
+\parskip 8pt plus 1pt minus 1pt
+\parindent 0pt   
+
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}%
+  {\bfont\Huge} % format
+  {\thechapter} % label
+  {20pt} % sep
+  {} % before
+  [\normalfont] % after
+
+
+\titleformat{\section}%
+  {\bfont\huge} % format
+  {\thesection} % label
+  {20pt} % sep
+  {} % before
+  [\normalfont] % after
+
+\titleformat{\subsection}%
+  {\bfont\LARGE} % format
+  {\thesubsection} % label
+  {15pt} % sep
+  {} % before
+  [\normalfont] % after
+
+\usepackage{tabularx}
+
+\usepackage{multirow}
+\usepackage{array}
+%\setlength\extrarowheight{5pt} % more padding in tables
+%\setlength{\arraycolsep}{5pt}
+\renewcommand{\arraystretch}{1.8}
+
+\begin{document}
+
+\input{content/titlepage}
+
+\input{content/intro}
+
+\input{content/styleguide}
+
+\input{content/version_control_system}
+
+\input{content/toolchain}
+
+
+\end{document}
+

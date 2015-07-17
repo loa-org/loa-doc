@@ -1,0 +1,80 @@
+\chapter{FPGA \& HDL Styleguide}
+
+If you deviate from the style guide, explain why and maybe we should modify or extend the guide.
+
+Write self-documenting code.
+
+
+
+\section{Architecture}
+Strictly hierarchical Design, avoid global signals.
+
+Use records in ports to simplyfy the design.
+
+Use Aliases for record types to avoid input output ambiguites.
+
+\section{File \& Directory Organization}
+
+
+Loa basically splits the HDL code into two categories, modules and toplevels. Modules are are functional modules, that consist of enties, packages and testbenches. 
+Toplevels are basically designs that can be synthesized into FPGA configurations, they are by definition hardware \& appplication specific. Toplevel designs should include a testbench, if feasable.
+
+One file per Entity.
+
+But packages into separate Files, give those the suffix \_pkg.vhd.
+
+\section{VHDL Code}
+
+
+Use downto in std\_logic\_vector, to avoid mixing bit order.
+
+
+Use clock signal as the last signal in ports, Eliminates one type of syntax error due the semicolon during code refactoring.
+
+
+ALL CAPS HURT MY EYES! Don't use it.
+
+
+%\begin{minted}[mathescape,
+%               linenos,
+%               numbersep=1em,
+%               gobble=0,
+%               frame=lines,
+%               framesep=2mm]{vhdl}
+%process
+%begin
+%  clk <= '1'; wait for 10 ns;
+%  clk <= '0'; wait for 10 ns;
+%end process;
+
+%\end{minted}
+
+%\inputminted{vhdl}{wikipedia.vhdl}
+
+\subsection{Nameing Convention}
+
+Types
+
+Signals
+
+Ports
+
+
+\section{Digital Systems}
+
+Use synchronous logic only.
+
+Use the FPGAs GCR instead of explicit reset signals. \footnote{For flash-based FPGAs a design needs a reset, also clock-domain crossings are way easier if you have a system-wide reset.}
+
+Use only one clock-domain in the design. \footnote{We might want more clock-domains in future.}
+
+Avoid the use asynchronous output in entities. If required for some reason mark these accordingly.
+
+
+\section{Testbenches}
+
+Provide each module with a testbench providing test-stimuli for visual waveform inspection that gives basic functional coverage.
+
+Toplevel-Testbenches are tricky -- TBC.
+
+
